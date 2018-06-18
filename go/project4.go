@@ -1,6 +1,8 @@
 package main
 import ("fmt"
-        "strconv")
+        "strconv"
+        "time"
+        "log")
 
 /* A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
 Find the largest palindrome made from the product of two 3-digit numbers. */
@@ -16,12 +18,14 @@ func is_palindrome(i int) bool{
 }
 
 func main() {
+  defer TimeTaken(time.Now(), "main()")
+
   a,b := 999, 999
   max := 0
 
   for ; b > 100 && a > 100; b--{
     test := a*b
-    if test < max || b == 101 {
+    if test < max || b == 101  {
       b = 999
       a--
     } else if is_palindrome(test) == true {
@@ -35,4 +39,9 @@ func main() {
     }
   }
   fmt.Println(max)
+}
+
+func TimeTaken(t time.Time, name string) {
+    elapsed := time.Since(t)
+    log.Printf("TIME: %s took %s\n", name, elapsed)
 }
