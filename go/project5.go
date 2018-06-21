@@ -7,7 +7,10 @@ import ("fmt"
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20? */
 
 
-/* this solution is garbage, but it was fun nonetheless. We increment by 20, since we know it must end with 0 in order to be divisible by 20 and the 10s place is even. This takes care of 2, 5, and 10 as well. After that, we check all primes. Assuming all primes pass, we check the fewest number of composite numbers. The comments in each if statement show what numbers are being proven to be divisble by. */
+/* this solution is garbage, but it was fun nonetheless. We increment by 20, since we know it must 
+end with 0 in order to be divisible by 20 and the 10s place is even. This takes care of 2, 5, and 10 as well. 
+After that, we check all primes. Assuming all primes pass, we check the fewest number of composite numbers. 
+The comments in each if statement show what numbers are being proven to be divisble by. */
 
 func main() {
   defer TimeTaken(time.Now(), "main()")
