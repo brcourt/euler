@@ -22,12 +22,16 @@ func main() {
   count := 6 // according to scope of the problem, we know 2, 3, 5, 7, 11, and 13 are prime
   i := 15 // 13 is prime, so increment two and start looping
 
-  for ; count < 10001; i+=2 {
+  for {
     if check_prime(i) == true {
       count++
+      if count == 10001 {
+        fmt.Println(i)
+        break
+      }
     }
+    i+=2
   }
-  fmt.Println(i)
 }
 
 func TimeTaken(t time.Time, name string) {
