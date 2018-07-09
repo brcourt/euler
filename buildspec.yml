@@ -4,5 +4,6 @@ phases:
     commands:
       - sleep 3
       - git status
-      - git checkout master
-      - git status
+      - COMMIT=git log -n 1 --pretty | grep commit | cut -d' ' -f 2
+      - echo $COMMIT
+      - git branch --contains $COMMIT
