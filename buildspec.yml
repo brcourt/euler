@@ -4,6 +4,9 @@ phases:
     commands:
       - sleep 3
       - git status
+      - git branch --contains 92abb4dc9b71071e9422053177d8146a4d327a4d
+      - git branch --contains $CODEBUILD_SOURCE_VERSION
       - git checkout test
       - echo $CODEBUILD_SOURCE_VERSION
+      - git branch --contains 92abb4dc9b71071e9422053177d8146a4d327a4d
       - git branch --contains $CODEBUILD_SOURCE_VERSION
