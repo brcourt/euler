@@ -4,4 +4,5 @@ phases:
     commands:
       - sleep 3
       - git status
+      - echo $CODEBUILD_SOURCE_VERSION
       - git branch --contains $CODEBUILD_SOURCE_VERSION
