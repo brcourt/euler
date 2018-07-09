@@ -4,3 +4,5 @@ phases:
     commands:
       - sleep 3
       - git status
+      - git checkout master
+      - git status
