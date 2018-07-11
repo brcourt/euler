@@ -1,6 +1,5 @@
 package main
 import ("fmt"
-        "math"
         "time"
         "log")
 
@@ -8,8 +7,12 @@ import ("fmt"
 What is the 10,001st prime number? */
 
 func check_prime(i int) bool {
-  for j := 3; j < int(math.Sqrt(float64(i))+1); j+=2 {
-    if i % j == 0 {
+  // 6k ± 1 optimization
+  if i <= 1 || i % 2 == 0 || i % 3 == 0 {
+    return false
+  }
+  for j := 5; j*j <= i; j += 6 {
+    if i % j == 0 || i % (j + 2) == 0 {
       return false
     }
   }
