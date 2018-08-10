@@ -3,8 +3,10 @@ phases:
   build:
     commands:
       - echo "Building all projects"
-      - ls ./go | xargs -I % sh -c 'go build %;'
+      - cd ./go
+      - ls | xargs -I % sh -c 'go build %;'
   post_build:
     commands:
       - echo "Executing project binaries"
-      - ls ./go | grep -v ".go" | xargs -I % /bin/bash -c "echo % && ./% && echo";
+      - cd ./go
+      - ls | grep -v ".go" | xargs -I % /bin/bash -c "echo % && ./% && echo";
