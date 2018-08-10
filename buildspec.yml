@@ -8,5 +8,4 @@ phases:
   post_build:
     commands:
       - echo "Executing project binaries"
-      - cd ./go
       - ls | grep -v ".go" | xargs -I % /bin/bash -c "echo % && ./% && echo";
